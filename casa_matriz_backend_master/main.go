@@ -12,6 +12,10 @@ func main() {
 	//Initiate webServer
 	e := echo.New()
 
+	//Redirect HTTP to HTTPs}
+	//DESACTIVADO PARA LOCALHOST, el ssl solo sirve si esta toda la infraestructura UP
+	//e.Pre(middleware.HTTPSRedirect())
+
 	//Database Conn
 	db.TestDB()
 
@@ -19,8 +23,15 @@ func main() {
 	router.ConfigRoutes(e)
 
 	//Serve website
-	e.Use(middleware.Static("./static"))
+	e.Use(middleware.Static("./public"))
 
 	//Start webserver
-	e.Logger.Fatal(e.Start("25.2.104.59:443"))
+
+	//Default
+	e.Logger.Fatal(e.Start(":80"))
+
+	// go func(c *echo.Echo) {
+	// 	e.Logger.Fatal(e.Start(":80"))
+	// }(e)
+	// e.Logger.Fatal(e.StartTLS(":443", "./tls/cert.pem", "./tls/cert-key.pem"))
 }

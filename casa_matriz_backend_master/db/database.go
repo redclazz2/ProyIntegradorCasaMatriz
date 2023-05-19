@@ -33,7 +33,7 @@ func GetDatabase() *sql.DB {
 func dbConnect() *sql.DB {
 	var db *sql.DB
 	var error error
-	db, error = sql.Open("mysql", "kabra:Belleza!09@tcp(25.4.182.181:3306)/casamatriz")
+	db, error = sql.Open("mysql", "kabra2:test@tcp(25.47.12.135:3306)/casamatriz")
 	if error != nil {
 		log.Fatal(error)
 

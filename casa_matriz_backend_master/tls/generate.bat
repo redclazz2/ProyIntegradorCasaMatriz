@@ -1,0 +1,1 @@
+openssl req -x509 -out server.crt -keyout server.key -newkey rsa:4096 -days 1024 -nodes -sha256 -subj "/C=CO/O=CasaDeLaBelleza/CN=CasaDeLaBelleza" -extensions EXT -config config.txt

@@ -1,0 +1,8 @@
+[dn]
+CN=CasaDeLaBelleza
+[req]
+distinguished_name = dn
+[EXT]
+subjectAltName=DNS:www.casadelabelleza.com,IP:192.168.0.7
+keyUsage=digitalSignature
+extendedKeyUsage=serverAuth
